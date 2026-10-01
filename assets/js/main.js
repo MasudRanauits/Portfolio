@@ -193,6 +193,14 @@
      INTERACTIONS
      ========================================================= */
 
+  /* Scroll-triggered animations wait for the boot screen to clear,
+     otherwise the hero counters and reveals play behind the overlay. */
+  function afterIntro(fn) {
+    const pre = document.getElementById("preloader");
+    if (!pre || document.documentElement.classList.contains("loaded")) { fn(); return; }
+    document.addEventListener("preloader:done", fn, { once: true });
+  }
+
   /* ---- Theme ---- */
   const root = document.documentElement;
   const saved = (() => { try { return localStorage.getItem("theme"); } catch (e) { return null; } })();
@@ -230,7 +238,7 @@
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 
-  $$(".reveal").forEach(el => revealObserver.observe(el));
+  afterIntro(() => $$(".reveal").forEach(el => revealObserver.observe(el)));
 
   /* ---- Counters ---- */
   const countObserver = new IntersectionObserver((entries) => {
@@ -248,7 +256,7 @@
       countObserver.unobserve(el);
     });
   }, { threshold: 0.5 });
-  $$(".count").forEach(el => countObserver.observe(el));
+  afterIntro(() => $$(".count").forEach(el => countObserver.observe(el)));
 
   /* ---- Meters ---- */
   const meterObserver = new IntersectionObserver((entries) => {
@@ -258,7 +266,7 @@
       meterObserver.unobserve(entry.target);
     });
   }, { threshold: 0.4 });
-  $$(".meter-fill").forEach(el => meterObserver.observe(el));
+  afterIntro(() => $$(".meter-fill").forEach(el => meterObserver.observe(el)));
 
   /* ---- Nav: scrolled state, progress, back-to-top ---- */
   const nav = $("#nav"), bar = $("#progressBar"), toTop = $("#toTop");

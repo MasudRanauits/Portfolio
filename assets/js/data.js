@@ -37,9 +37,9 @@ const PORTFOLIO = {
 
   /* ---------------- Hero counters ---------------- */
   stats: [
-    { value: 3,  suffix: "+", label: "Years in QA" },
+    { value: 3,  suffix: "+", label: "Years of Experience" },
     { value: 10, suffix: "+", label: "Releases Supported" },
-    { value: 9,  suffix: "+", label: "Enterprise Projects" },
+    { value: 15, suffix: "+", label: "Projects Tested" },
     { value: 3,  suffix: "",  label: "Automation Suites" }
   ],
 
