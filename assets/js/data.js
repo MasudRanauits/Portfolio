@@ -155,18 +155,6 @@ const PORTFOLIO = {
     }
   ],
 
-  // Proficiency meters (self-assessed — adjust freely)
-  proficiency: [
-    { name: "Manual & Functional Testing", level: 95 },
-    { name: "API Testing (Postman)",            level: 88 },
-    { name: "Playwright + TypeScript",          level: 85 },
-    { name: "Performance Testing (JMeter)",     level: 80 },
-    { name: "SQL / Database Validation",        level: 75 },
-    { name: "Selenium WebDriver",               level: 70 }
-  ],
-
-  softSkills: ["Team Collaboration", "Strong Communication", "Problem Solving", "Critical Thinking", "Ownership"],
-
   /* ---------------- Projects ---------------- */
   projects: [
     {
@@ -241,7 +229,6 @@ const PORTFOLIO = {
 
   /* ---------------- Footer ---------------- */
   meta: {
-    footerNote: "Built with plain HTML, CSS and JavaScript — no frameworks, just clean code.",
     year: new Date().getFullYear()
   }
 };

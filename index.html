@@ -322,18 +322,7 @@
           <p class="section-sub">The stack I use day to day across the QA lifecycle.</p>
         </div>
 
-        <div class="skills-wrap">
-          <div class="skill-grid reveal" id="skillGrid"></div>
-
-          <div class="card meters reveal" data-delay="2">
-            <h4>Proficiency</h4>
-            <div id="meters"></div>
-            <div class="soft-skills">
-              <h5>Soft Skills</h5>
-              <div class="chips" id="softSkills"></div>
-            </div>
-          </div>
-        </div>
+        <div class="skill-grid reveal" id="skillGrid"></div>
       </div>
     </section>
 
@@ -367,38 +356,31 @@
     <!-- ============ CONTACT ============ -->
     <section id="contact">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Get In Touch</span>
-          <h2 class="section-title">Let us build something <span class="grad-text">reliable</span></h2>
-          <p class="section-sub">Have a role, a project or a question? My inbox is always open.</p>
-        </div>
+        <div class="card contact-panel reveal">
+          <div class="contact-panel-grid">
 
-        <div class="contact-grid">
-          <div class="contact-list reveal" id="contactList"></div>
+            <div class="contact-intro">
+              <span class="eyebrow-line">Contact</span>
+              <h2>Let's build <span class="grad-text">reliable software</span> together.</h2>
+              <p>Have a role, a project or a question? My inbox is always open — I reply to every genuine message.</p>
+              <div class="contact-actions">
+                <a class="btn btn-primary" id="contactMail" href="#">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                  Send a message
+                </a>
+                <a class="btn btn-ghost" id="contactResume" href="#" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>
+                  View Resume
+                </a>
+              </div>
+            </div>
 
-          <form class="card form reveal" data-delay="2" id="contactForm">
-            <div class="field">
-              <label for="cName">Your Name</label>
-              <input type="text" id="cName" name="name" placeholder="Enter your name" required />
+            <div class="contact-cards">
+              <div class="contact-list" id="contactList"></div>
+              <div class="contact-social" id="contactSocial"></div>
             </div>
-            <div class="field">
-              <label for="cEmail">Your Email</label>
-              <input type="email" id="cEmail" name="email" placeholder="you@company.com" required />
-            </div>
-            <div class="field">
-              <label for="cSubject">Subject</label>
-              <input type="text" id="cSubject" name="subject" placeholder="What is this about?" required />
-            </div>
-            <div class="field">
-              <label for="cMessage">Message</label>
-              <textarea id="cMessage" name="message" placeholder="Write your message..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-              Send Message
-            </button>
-            <p class="form-note">This form opens your own email app with the message pre-filled — no server, no data stored.</p>
-          </form>
+
+          </div>
         </div>
       </div>
     </section>
@@ -409,7 +391,6 @@
   <footer class="footer">
     <div class="container footer-grid">
       <p>&copy; <span id="year"></span> <span id="footerName">Md. Masud Rana</span>. All rights reserved.</p>
-      <p id="footerNote"></p>
       <div class="footer-social" id="footerSocial"></div>
     </div>
   </footer>

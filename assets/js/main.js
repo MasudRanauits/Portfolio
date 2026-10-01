@@ -45,7 +45,6 @@
   $("#heroTagline").textContent = P.tagline;
   $("#availability").textContent = P.availability;
   $("#year").textContent = D.meta.year;
-  $("#footerNote").textContent = D.meta.footerNote;
   $("#navResume").href = P.resume;
   $("#mobileResume").href = P.resume;
   document.title = P.name + " — " + P.title;
@@ -53,8 +52,11 @@
   const socialHTML = P.social
     .map(s => `<a class="icon-btn" href="${s.url}" target="_blank" rel="noopener noreferrer" aria-label="${s.label}" title="${s.label}">${icon(s.icon)}</a>`)
     .join("");
-  $("#heroSocial").innerHTML   = socialHTML;
-  $("#footerSocial").innerHTML = socialHTML;
+  $("#heroSocial").innerHTML    = socialHTML;
+  $("#footerSocial").innerHTML  = socialHTML;
+  $("#contactSocial").innerHTML = socialHTML;
+  $("#contactMail").href        = "mailto:" + P.email;
+  $("#contactResume").href      = P.resume;
 
   /* ---- Stats ---- */
   $("#stats").innerHTML = D.stats
@@ -119,16 +121,6 @@
         <div class="chips">${g.items.map(s => `<span class="chip">${s}</span>`).join("")}</div>
       </article>`)
     .join("");
-
-  $("#meters").innerHTML = D.proficiency
-    .map(m => `
-      <div class="meter">
-        <div class="meter-top"><span>${m.name}</span><span>${m.level}%</span></div>
-        <div class="meter-track"><div class="meter-fill" data-level="${m.level}"></div></div>
-      </div>`)
-    .join("");
-
-  $("#softSkills").innerHTML = D.softSkills.map(s => `<span class="chip">${s}</span>`).join("");
 
   /* ---- Projects: filter chips + expandable explorer rows ---- */
   const CAT_LABELS = { all: "All Projects", healthcare: "Healthcare", ecommerce: "E-commerce" };
@@ -231,10 +223,10 @@
   $("#contactList").innerHTML = [
     { icon: "mail",  label: "Email",    value: P.email,    href: "mailto:" + P.email },
     { icon: "phone", label: "Phone",    value: P.phone,    href: "tel:" + P.phoneRaw },
-    { icon: "pin",   label: "Location", value: P.location, href: "https://maps.google.com/?q=" + encodeURIComponent(P.location) },
-    { icon: "linkedin", label: "LinkedIn", value: "in/masud-rana43", href: P.social[0].url }
-  ].map((c, i) => `
-      <a class="contact-item reveal" data-delay="${i + 1}" href="${c.href}" target="_blank" rel="noopener noreferrer">
+    { icon: "pin",   label: "Location", value: P.location, href: "https://maps.google.com/?q=" + encodeURIComponent(P.location) }
+    /* LinkedIn is omitted here on purpose — it already sits in the social row below. */
+  ].map(c => `
+      <a class="contact-item" href="${c.href}" target="_blank" rel="noopener noreferrer">
         <span class="icon-box">${icon(c.icon)}</span>
         <span><small>${c.label}</small><b>${c.value}</b></span>
       </a>`)
@@ -309,16 +301,6 @@
   }, { threshold: 0.5 });
   afterIntro(() => $$(".count").forEach(el => countObserver.observe(el)));
 
-  /* ---- Meters ---- */
-  const meterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.style.width = entry.target.dataset.level + "%";
-      meterObserver.unobserve(entry.target);
-    });
-  }, { threshold: 0.4 });
-  afterIntro(() => $$(".meter-fill").forEach(el => meterObserver.observe(el)));
-
   /* ---- Nav: scrolled state, progress, back-to-top ---- */
   const nav = $("#nav"), bar = $("#progressBar"), toTop = $("#toTop");
   function onScroll() {
@@ -369,18 +351,6 @@
     menu.classList.remove("open");
     burger.setAttribute("aria-expanded", "false");
   }));
-
-  /* ---- Contact form → mailto ---- */
-  $("#contactForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const name = $("#cName").value.trim();
-    const email = $("#cEmail").value.trim();
-    const subject = $("#cSubject").value.trim();
-    const message = $("#cMessage").value.trim();
-    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    window.location.href =
-      `mailto:${P.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
 
   /* ---- Cursor glow (pointer devices only) ---- */
   if (window.matchMedia("(pointer: fine)").matches) {
