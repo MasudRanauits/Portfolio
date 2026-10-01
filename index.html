@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Md. Masud Rana — Software QA Engineer</title>
+  <meta name="description" content="Portfolio of Md. Masud Rana, Software QA Engineer with 3+ years of experience in manual and automation testing — Playwright, Selenium, Postman, JMeter and JIRA across Healthcare ERP, Web Portal, CRM and E-commerce products." />
+  <meta name="author" content="Md. Masud Rana" />
+  <meta name="keywords" content="QA Engineer, Software Testing, Playwright, Selenium, Postman, JMeter, Manual Testing, Automation Testing, Dhaka, Bangladesh" />
+  <meta name="theme-color" content="#070b14" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Md. Masud Rana — Software QA Engineer" />
+  <meta property="og:description" content="3+ years of manual &amp; automation QA across Healthcare ERP, Web Portal, CRM and E-commerce platforms." />
+
+  <!-- Favicon (inline SVG, no extra file needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2322d3ee'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Segoe UI,sans-serif' font-weight='bold' text-anchor='middle' fill='%23041018'%3EM%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- Ambient background -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav" id="nav">
+    <div class="container">
+      <a href="#home" class="brand" aria-label="Home">
+        <span class="brand-mark">MR</span>
+        <span class="brand-text">
+          <span id="brandName">Masud Rana</span>
+          <small>QA Engineer</small>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle colour theme" title="Toggle theme">
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+
+        <a class="btn btn-primary nav-cta" id="navResume" href="#" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          Resume
+        </a>
+
+        <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="container">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <a href="#" id="mobileResume" download style="color:var(--accent)">Download Resume ↓</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-left reveal">
+            <span class="status-chip"><span class="pulse-dot"></span><span id="availability">Open to new opportunities</span></span>
+
+            <h1>Hi, I am <span class="grad-text" id="heroName">Md. Masud Rana</span></h1>
+            <div class="hero-role"><span id="typed"></span><span class="caret"></span></div>
+            <p class="hero-tagline" id="heroTagline"></p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                View Projects
+              </a>
+              <a href="#contact" class="btn btn-ghost">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+                Hire Me
+              </a>
+            </div>
+
+            <div class="hero-social" id="heroSocial"></div>
+          </div>
+
+          <div class="hero-right reveal" data-delay="2">
+            <div class="hero-card">
+              <div class="card-dots"><i></i><i></i><i></i></div>
+              <pre class="code-block"><code><span class="c">// qa-engineer.spec.ts</span>
+<span class="k">import</span> { test, expect } <span class="k">from</span> <span class="s">'@playwright/test'</span>;
+
+<span class="f">test</span>(<span class="s">'hire Masud Rana'</span>, <span class="k">async</span> ({ page }) =&gt; {
+  <span class="k">const</span> <span class="p">qa</span> = {
+    experience : <span class="s">'3+ years'</span>,
+    focus      : <span class="s">'Healthcare ERP, CRM, E-commerce'</span>,
+    manual     : <span class="s">'Test design → UAT sign-off'</span>,
+    automation : [<span class="s">'Playwright'</span>, <span class="s">'Selenium'</span>],
+    api        : <span class="s">'Postman'</span>,
+    perf       : <span class="s">'Apache JMeter'</span>,
+  };
+
+  <span class="f">await</span> <span class="f">expect</span>(<span class="p">qa</span>.releases).<span class="f">toBeGreaterThan</span>(<span class="p">10</span>);
+  <span class="f">await</span> <span class="f">expect</span>(<span class="p">qa</span>.bugs).<span class="f">toBe</span>(<span class="s">'found before users do'</span>);
+});</code></pre>
+              <div class="test-result">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                1 passed (1.2s) — 0 flaky, 0 skipped
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats" id="stats"></div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">About Me</span>
+          <h2 class="section-title">Behind the <span class="grad-text">test cases</span></h2>
+          <p class="section-sub">Who I am, how I work, and what I bring to a QA team.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <h3 id="aboutHeading"></h3>
+            <div id="aboutParagraphs"></div>
+            <div class="facts" id="aboutFacts"></div>
+          </div>
+
+          <div class="card reveal" data-delay="2">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h4 style="margin-bottom:14px">What I bring to the table</h4>
+            <ul class="highlight-list" id="aboutHighlights"></ul>
+          </div>
+        </div>
+
+        <div class="services-grid" id="services" style="margin-top:clamp(36px,5vw,60px)"></div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Career Path</span>
+          <h2 class="section-title">Professional <span class="grad-text">Experience</span></h2>
+          <p class="section-sub">Where I have tested, broken and improved real products.</p>
+        </div>
+
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Toolbox</span>
+          <h2 class="section-title">Technical <span class="grad-text">Skills</span></h2>
+          <p class="section-sub">The stack I use day to day across the QA lifecycle.</p>
+        </div>
+
+        <div class="skills-wrap">
+          <div class="skill-grid reveal" id="skillGrid"></div>
+
+          <div class="card meters reveal" data-delay="2">
+            <h4>Proficiency</h4>
+            <div id="meters"></div>
+            <div class="soft-skills">
+              <h5>Soft Skills</h5>
+              <div class="chips" id="softSkills"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Automation Work</span>
+          <h2 class="section-title">Featured <span class="grad-text">Projects</span></h2>
+          <p class="section-sub">Playwright + TypeScript suites built on the Page Object Model.</p>
+        </div>
+
+        <div class="filters reveal" id="filters"></div>
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section id="education">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Academics</span>
+          <h2 class="section-title">Education</h2>
+          <p class="section-sub">Where the foundation was built.</p>
+        </div>
+
+        <div class="edu-grid" id="eduGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Get In Touch</span>
+          <h2 class="section-title">Let us build something <span class="grad-text">reliable</span></h2>
+          <p class="section-sub">Have a role, a project or a question? My inbox is always open.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-list reveal" id="contactList"></div>
+
+          <form class="card form reveal" data-delay="2" id="contactForm">
+            <div class="field">
+              <label for="cName">Your Name</label>
+              <input type="text" id="cName" name="name" placeholder="Enter your name" required />
+            </div>
+            <div class="field">
+              <label for="cEmail">Your Email</label>
+              <input type="email" id="cEmail" name="email" placeholder="you@company.com" required />
+            </div>
+            <div class="field">
+              <label for="cSubject">Subject</label>
+              <input type="text" id="cSubject" name="subject" placeholder="What is this about?" required />
+            </div>
+            <div class="field">
+              <label for="cMessage">Message</label>
+              <textarea id="cMessage" name="message" placeholder="Write your message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              Send Message
+            </button>
+            <p class="form-note">This form opens your own email app with the message pre-filled — no server, no data stored.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <p>&copy; <span id="year"></span> <span id="footerName">Md. Masud Rana</span>. All rights reserved.</p>
+      <p id="footerNote"></p>
+      <div class="footer-social" id="footerSocial"></div>
+    </div>
+  </footer>
+
+  <a href="#home" class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </a>
+
+  <noscript>
+    <div style="padding:24px;text-align:center;background:#111;color:#fff">
+      This portfolio renders its content with JavaScript. Please enable JavaScript to view the full site.
+    </div>
+  </noscript>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
