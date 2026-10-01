@@ -119,13 +119,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: .45;
+  filter: blur(110px);
+  opacity: .16;
   animation: float 22s var(--ease) infinite alternate;
 }
 .blob-1 { width: 520px; height: 520px; top: -160px; left: -120px; background: radial-gradient(circle, var(--accent), transparent 68%); }
 .blob-2 { width: 460px; height: 460px; top: 32%; right: -160px; background: radial-gradient(circle, var(--accent-2), transparent 68%); animation-delay: -7s; }
-.blob-3 { width: 420px; height: 420px; bottom: -120px; left: 36%; background: radial-gradient(circle, var(--accent-3), transparent 68%); animation-delay: -13s; opacity: .3; }
+.blob-3 { width: 420px; height: 420px; bottom: -120px; left: 36%; background: radial-gradient(circle, var(--accent-3), transparent 68%); animation-delay: -13s; opacity: .10; }
 
 @keyframes float {
   from { transform: translate3d(0,0,0) scale(1); }
@@ -155,7 +155,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .skill-grid > *, .projects-grid > *, .services-grid > *, .edu-grid > *,
 .stats > *, .facts > *, .card, .edu > * { min-width: 0; }
 
-section { position: relative; padding-block: clamp(72px, 10vw, 128px); }
+section { position: relative; padding-block: clamp(52px, 6vw, 84px); }
 
 .section-head { text-align: center; max-width: 680px; margin: 0 auto clamp(40px, 6vw, 68px); }
 .eyebrow {
@@ -470,6 +470,13 @@ html[data-theme="light"] .theme-toggle .moon { display: none; }
   border: 1px solid var(--border); background: var(--surface); color: var(--text-dim);
   white-space: nowrap;
 }
+.job-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+.job-location {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .78rem; font-weight: 500; color: var(--text-faint);
+  white-space: nowrap;
+}
+.job-location svg { width: 14px; height: 14px; flex: 0 0 auto; }
 .badge-now {
   font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
   color: var(--accent-3); background: color-mix(in srgb, var(--accent-3) 14%, transparent);

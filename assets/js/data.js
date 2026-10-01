@@ -26,7 +26,7 @@ const PORTFOLIO = {
     email: "masudr8343@gmail.com",
     phone: "+880 1689 178343",
     phoneRaw: "+8801689178343",
-    availability: "Open to new opportunities",
+    availability: "Available for new opportunities",
     resume: "assets/Md-Masud-Rana-SQA-Resume.pdf",
     social: [
       { label: "LinkedIn", icon: "linkedin", url: "https://www.linkedin.com/in/masud-rana43/" },
@@ -73,6 +73,7 @@ const PORTFOLIO = {
       role: "Software QA Engineer",
       company: "E-Medical Software Ltd",
       period: "09/2024 — Present",
+      location: "Dhaka, Bangladesh",
       current: true,
       summary:
         "Owning QA for a multi-hospital Healthcare ERP suite and its public web portals, from test design through production sign-off.",
@@ -99,6 +100,7 @@ const PORTFOLIO = {
       role: "Junior SQA Engineer",
       company: "Battery Low Interactive Ltd",
       period: "07/2023 — 08/2024",
+      location: "Dhaka, Bangladesh",
       current: false,
       summary:
         "Delivered end-to-end manual QA across web and mobile products, including high-traffic performance validation.",

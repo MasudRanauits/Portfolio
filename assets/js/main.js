@@ -91,7 +91,10 @@
               <h3>${j.role} ${j.current ? '<span class="badge-now">Current</span>' : ""}</h3>
               <span class="job-company">${j.company}</span>
             </div>
-            <span class="period">${j.period}</span>
+            <div class="job-meta">
+              <span class="period">${j.period}</span>
+              ${j.location ? `<span class="job-location">${icon("pin")}${j.location}</span>` : ""}
+            </div>
           </div>
           <p class="job-summary">${j.summary}</p>
           <ul class="job-points">${j.points.map(p => `<li>${p}</li>`).join("")}</ul>
