@@ -26,7 +26,10 @@
     gear:     `<svg ${S}><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
     cap:      `<svg ${S}><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>`,
     arrow:    `<svg ${S}><path d="M5 12h14M12 5l7 7-7 7"/></svg>`,
-    external: `<svg ${S}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg>`
+    external: `<svg ${S}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg>`,
+    folder:   `<svg ${S}><path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5"/><circle cx="13" cy="12" r="2"/><path d="M18 19c-2.8 0-5-2.2-5-5v8"/><circle cx="20" cy="19" r="2"/></svg>`,
+    building: `<svg ${S}><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>`,
+    chevron:  `<svg ${S}><path d="m6 9 6 6 6-6"/></svg>`
   };
   const icon = (n) => ICONS[n] || ICONS.check;
 
@@ -127,43 +130,88 @@
 
   $("#softSkills").innerHTML = D.softSkills.map(s => `<span class="chip">${s}</span>`).join("");
 
-  /* ---- Projects + filters ---- */
+  /* ---- Projects: filter chips + expandable explorer rows ---- */
+  const CAT_LABELS = { all: "All Projects", healthcare: "Healthcare", ecommerce: "E-commerce" };
   const categories = ["all", ...new Set(D.projects.map(p => p.category))];
-  const labelOf = c => c === "all" ? "All Projects" : c.charAt(0).toUpperCase() + c.slice(1);
+  const labelOf = c => CAT_LABELS[c] || c.charAt(0).toUpperCase() + c.slice(1);
 
   $("#filters").innerHTML = categories
     .map((c, i) => `<button class="filter-btn ${i === 0 ? "active" : ""}" data-filter="${c}">${labelOf(c)}</button>`)
     .join("");
 
-  $("#projectsGrid").innerHTML = D.projects
+  $("#projectsList").innerHTML = D.projects
     .map((p, i) => `
-      <article class="card project reveal" data-category="${p.category}" data-delay="${i + 1}">
-        <div class="project-top">
-          <span class="project-type">${p.type}</span>
-          <span class="icon-box" style="width:40px;height:40px;margin:0;border-radius:11px">${icon("github")}</span>
-        </div>
-        <h3>${p.title}</h3>
-        <p>${p.description}</p>
-        <ul class="project-highlights">${p.highlights.map(h => `<li>${h}</li>`).join("")}</ul>
-        <div class="tags">${p.tech.map(t => `<span class="tag">${t}</span>`).join("")}</div>
-        <div class="project-foot">
-          <a class="repo-link" href="${p.repo}" target="_blank" rel="noopener noreferrer">
-            View on GitHub ${icon("external")}
-          </a>
+      <article class="proj-item reveal" data-category="${p.category}" data-delay="${i + 1}" data-open="${i === 0}">
+        <button class="proj-trigger" type="button" aria-expanded="${i === 0}" aria-controls="projPanel${i}">
+          <span class="proj-index" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+          <span class="proj-icon" aria-hidden="true">${icon("folder")}</span>
+          <span class="proj-main">
+            <span class="proj-title-row">
+              <span class="proj-title">${p.title}</span>
+              ${p.repo ? `<span class="proj-badge">${icon("github")}Repo</span>` : ""}
+            </span>
+            <span class="proj-sub">
+              ${icon("building")}
+              <span class="org">${p.type}</span>
+              <span aria-hidden="true">·</span>
+              <span class="cat">${labelOf(p.category)}</span>
+            </span>
+          </span>
+          <span class="proj-chev" aria-hidden="true">${icon("chevron")}</span>
+        </button>
+        <div class="proj-panel" id="projPanel${i}" role="region">
+          <div>
+            <div class="proj-body">
+              <p>${p.description}</p>
+              <ul class="proj-points">${p.highlights.map(h => `<li>${h}</li>`).join("")}</ul>
+              <div class="tags">${p.tech.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+              ${p.repo ? `
+              <a class="repo-link" href="${p.repo}" target="_blank" rel="noopener noreferrer">
+                View on GitHub ${icon("external")}
+              </a>` : ""}
+            </div>
+          </div>
         </div>
       </article>`)
     .join("");
+
+  /* One row open at a time, like a classic accordion. */
+  $("#projectsList").addEventListener("click", (e) => {
+    const trigger = e.target.closest(".proj-trigger");
+    if (!trigger) return;
+    const item = trigger.closest(".proj-item");
+    const wasOpen = item.dataset.open === "true";
+    $$(".proj-item").forEach(x => {
+      x.dataset.open = "false";
+      x.querySelector(".proj-trigger").setAttribute("aria-expanded", "false");
+    });
+    if (!wasOpen) {
+      item.dataset.open = "true";
+      trigger.setAttribute("aria-expanded", "true");
+    }
+  });
 
   $("#filters").addEventListener("click", (e) => {
     const btn = e.target.closest(".filter-btn");
     if (!btn) return;
     $$(".filter-btn").forEach(b => b.classList.toggle("active", b === btn));
     const f = btn.dataset.filter;
-    $$(".project").forEach(card => {
-      const show = f === "all" || card.dataset.category === f;
-      card.classList.toggle("hide", !show);
-      if (show) { card.classList.remove("in"); requestAnimationFrame(() => card.classList.add("in")); }
+    const shown = $$(".proj-item").filter(item => {
+      const show = f === "all" || item.dataset.category === f;
+      item.classList.toggle("hide", !show);
+      return show;
     });
+    // Keep one row open so the list never collapses to bare headers.
+    if (!shown.some(i => i.dataset.open === "true")) {
+      $$(".proj-item").forEach(x => {
+        x.dataset.open = "false";
+        x.querySelector(".proj-trigger").setAttribute("aria-expanded", "false");
+      });
+      if (shown[0]) {
+        shown[0].dataset.open = "true";
+        shown[0].querySelector(".proj-trigger").setAttribute("aria-expanded", "true");
+      }
+    }
   });
 
   /* ---- Education ---- */
