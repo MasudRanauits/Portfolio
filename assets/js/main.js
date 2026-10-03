@@ -65,7 +65,37 @@
   $("#year").textContent         = D.meta.year;
   document.title = P.name + " — " + P.title;
 
-  $$("#navResume, #mobileResume, #heroResume, #aboutResume").forEach(a => { a.href = P.resume; });
+  /* ---- Resume buttons: always download, never open in the PDF viewer ----
+     The `download` attribute on its own is routinely overridden by browser
+     PDF viewers, so every click fetches the file and saves it from a blob.
+     If the fetch cannot run (file:// pages, offline) a synthetic anchor with
+     `download` is clicked instead, which is the next best native fallback. */
+  const RESUME_FILE = P.resume.split("/").pop() || "resume.pdf";
+
+  function triggerSave(href, filename, revoke) {
+    const a = document.createElement("a");
+    a.href = href;
+    a.download = filename;
+    a.rel = "noopener";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    if (revoke) setTimeout(() => URL.revokeObjectURL(href), 1000);
+  }
+
+  function downloadResume(e) {
+    if (e) e.preventDefault();
+    fetch(P.resume, { cache: "no-store" })
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+      .then(b => triggerSave(URL.createObjectURL(b), RESUME_FILE, true))
+      .catch(() => triggerSave(P.resume, RESUME_FILE, false));
+  }
+
+  $$("#navResume, #mobileResume, #heroResume, #aboutResume").forEach(a => {
+    a.href = P.resume;
+    a.setAttribute("download", RESUME_FILE);
+    a.addEventListener("click", downloadResume);
+  });
 
   const socialHTML = P.social
     .map(s => `<a class="icon-btn" href="${s.url}" target="_blank" rel="noopener noreferrer" aria-label="${s.label}" title="${s.label}">${icon(s.icon)}</a>`)
