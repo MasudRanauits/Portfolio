@@ -155,7 +155,23 @@ const PORTFOLIO = {
     }
   ],
 
-  /* ---------------- Projects ---------------- */
+  /* ---------------- Tools & Technologies (icon tiles) ---------------- */
+  tools: [
+    { name: "Playwright",  icon: "code"     },
+    { name: "Selenium",    icon: "globe"    },
+    { name: "Postman",     icon: "server"   },
+    { name: "JMeter",      icon: "activity" },
+    { name: "TypeScript",  icon: "file"     },
+    { name: "Java",        icon: "coffee"   },
+    { name: "MySQL",       icon: "database" },
+    { name: "MSSQL",       icon: "database" },
+    { name: "JIRA",        icon: "layout"   },
+    { name: "Git / GitHub",icon: "github"   },
+    { name: "Burp Suite",  icon: "shield"   },
+    { name: "BrowserStack",icon: "monitor"  }
+  ],
+
+  /* ---------------- Projects (personal / GitHub) ---------------- */
   projects: [
     {
       title: "Medinova Medical Services Ltd",

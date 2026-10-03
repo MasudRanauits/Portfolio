@@ -8,20 +8,19 @@
   <meta name="description" content="Portfolio of Md. Masud Rana, Software QA Engineer with 3+ years of experience in manual and automation testing — Playwright, Selenium, Postman, JMeter and JIRA across Healthcare ERP, Web Portal, CRM and E-commerce products." />
   <meta name="author" content="Md. Masud Rana" />
   <meta name="keywords" content="QA Engineer, Software Testing, Playwright, Selenium, Postman, JMeter, Manual Testing, Automation Testing, Dhaka, Bangladesh" />
-  <meta name="theme-color" content="#070709" />
+  <meta name="theme-color" content="#0b1e22" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Md. Masud Rana — Software QA Engineer" />
   <meta property="og:description" content="3+ years of manual &amp; automation QA across Healthcare ERP, Web Portal, CRM and E-commerce platforms." />
 
-  <!-- Favicon (inline SVG, no extra file needed) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2310b981'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Segoe UI,sans-serif' font-weight='bold' text-anchor='middle' fill='%23041018'%3EM%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2388bdbc'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Segoe UI,sans-serif' font-weight='bold' text-anchor='middle' fill='%23112d32'%3EM%3C/text%3E%3C/svg%3E" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/style.css" />
 
@@ -39,26 +38,21 @@
   <style>
     .preloader { display: none; }
     html.js .preloader {
-      --pre-bg:     #070709;
-      --pre-chrome: #13151b;
-      --pre-pane:   #0d0e12;
-      --pre-line:   rgba(255,255,255,.09);
-      --pre-text:   #f2f2f4;
-      --pre-dim:    #7c7c87;
-      --pre-accent: #10b981;
-      --pre-ok:     #34d399;
+      --pre-bg:     #112d32;
+      --pre-chrome: #1b3f46;
+      --pre-pane:   #16363c;
+      --pre-line:   rgba(136,189,188,.22);
+      --pre-text:   #e8f2f1;
+      --pre-dim:    #8ea3a2;
+      --pre-accent: #88bdbc;
+      --pre-ok:     #4ade80;
 
       position: fixed; inset: 0; z-index: 9999;
       display: grid; place-items: center;
       background: var(--pre-bg);
-      background-image: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(16,185,129,.12), transparent 70%);
-      font-family: "JetBrains Mono", "Cascadia Code", ui-monospace, Consolas, monospace;
+      background-image: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(136,189,188,.14), transparent 70%);
+      font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
       transition: opacity .45s ease, visibility .45s ease;
-    }
-    html.js[data-theme="light"] .preloader {
-      --pre-bg: #f4f7fb; --pre-chrome: #eef2f8; --pre-pane: #ffffff;
-      --pre-line: rgba(13,21,38,.10); --pre-text: #0f172a; --pre-dim: #64748b;
-      --pre-accent: #059669; --pre-ok: #10b981;
     }
     html.preloading { overflow: hidden; }
     .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
@@ -109,13 +103,14 @@
 
     .pre-track { margin-top: 8px; height: 3px; border-radius: 99px; background: var(--pre-line); overflow: hidden; }
     .pre-track i { display: block; height: 100%; width: 0; border-radius: 99px;
-      background: linear-gradient(90deg, #10b981, #6ee7b7); transition: width .18s linear; }
+      background: linear-gradient(90deg, #88bdbc, #cfe8e7); transition: width .18s linear; }
 
     .pre-skip {
       position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
       font-family: inherit; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
       color: var(--pre-dim); border: 1px solid var(--pre-line); border-radius: 99px;
-      padding: 7px 18px; background: transparent; transition: color .25s, border-color .25s;
+      padding: 7px 18px; background: transparent; cursor: pointer;
+      transition: color .25s, border-color .25s;
     }
     .pre-skip:hover { color: var(--pre-accent); border-color: var(--pre-accent); }
 
@@ -149,15 +144,6 @@
   </div>
   <script src="assets/js/preloader.js"></script>
 
-  <!-- Ambient background -->
-  <div class="bg-layer" aria-hidden="true">
-    <div class="bg-grid"></div>
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
-  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-
   <!-- Scroll progress -->
   <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
@@ -165,221 +151,213 @@
   <header class="nav" id="nav">
     <div class="container">
       <a href="#home" class="brand" aria-label="Home">
-        <img class="brand-mark" src="assets/img/avatar.jpg" alt="Md. Masud Rana" width="40" height="40" loading="eager" decoding="async" />
+        <img class="brand-mark" src="assets/img/avatar.jpg" alt="" width="40" height="40" loading="eager" decoding="async" />
         <span class="brand-text">
-          <span id="brandName">Masud Rana</span>
+          MD. MASUD<span> RANA</span>
           <small>Software QA Engineer</small>
         </span>
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#education">Education</a>
+        <a class="nav-link" href="#contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle colour theme" title="Toggle theme">
-          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle colour theme" title="Toggle theme">
+          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-
-        <a class="btn btn-primary nav-cta" id="navResume" href="#" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-          Resume
-        </a>
-
-        <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <a class="btn btn-solid" id="navResume" href="#" download>Download CV</a>
+        <button class="icon-btn burger" id="burger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
         </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#education">Education</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a class="btn btn-solid" id="mobileResume" href="#" download>Download CV</a>
       </div>
     </div>
   </header>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="container">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-      <a href="#" id="mobileResume" download style="color:var(--accent)">Download Resume ↓</a>
-    </div>
-  </div>
-
   <main>
 
     <!-- ============ HERO ============ -->
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-left reveal">
-            <span class="status-chip"><span class="pulse-dot"></span><span id="availability">Available for new opportunities</span></span>
+    <header class="hero" id="home">
+      <div class="container hero-grid grid-min0">
+        <div class="hero-copy">
+          <span class="status-chip"><span class="pulse-dot" aria-hidden="true"></span><span id="availability">Available for new opportunities</span></span>
 
-            <h1><span class="grad-text" id="heroName">Md. Masud Rana</span></h1>
-            <div class="hero-role"><span id="typed"></span><span class="caret"></span></div>
-            <p class="hero-tagline" id="heroTagline"></p>
+          <h1 id="heroName">Md. Masud Rana</h1>
+          <p class="hero-role"><span class="typed" id="typed"></span><span class="caret" aria-hidden="true"></span></p>
+          <p class="hero-tagline" id="heroTagline"></p>
 
-            <div class="hero-actions">
-              <a href="#projects" class="btn btn-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-                View Projects
-              </a>
-              <a href="#contact" class="btn btn-ghost">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-                Hire Me
-              </a>
-            </div>
-
-            <div class="hero-social" id="heroSocial"></div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="heroResume" href="#" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+              Download CV
+            </a>
+            <a class="btn btn-outline" href="#projects">View Projects</a>
           </div>
+          <a class="hero-contact-link" href="#contact">Contact Me</a>
 
-          <div class="hero-right reveal" data-delay="2">
-            <div class="hero-card">
-              <div class="card-dots"><i></i><i></i><i></i></div>
-              <pre class="code-block"><code><span class="c">// qa-engineer.spec.ts</span>
-<span class="k">import</span> { test, expect } <span class="k">from</span> <span class="s">'@playwright/test'</span>;
+          <ul class="hero-tools" id="heroTools" aria-label="Key testing tools"></ul>
+          <div class="stats" id="stats"></div>
+        </div>
 
-<span class="f">test</span>(<span class="s">'hire Masud Rana'</span>, <span class="k">async</span> ({ page }) =&gt; {
-  <span class="k">const</span> <span class="p">qa</span> = {
-    experience : <span class="s">'3+ years'</span>,
-    focus      : <span class="s">'Healthcare ERP, CRM, E-commerce'</span>,
-    manual     : <span class="s">'Test design → UAT sign-off'</span>,
-    automation : [<span class="s">'Playwright'</span>, <span class="s">'Selenium'</span>],
-    api        : <span class="s">'Postman'</span>,
-    perf       : <span class="s">'Apache JMeter'</span>,
-  };
-
-  <span class="f">await</span> <span class="f">expect</span>(<span class="p">qa</span>.releases).<span class="f">toBeGreaterThan</span>(<span class="p">10</span>);
-  <span class="f">await</span> <span class="f">expect</span>(<span class="p">qa</span>.bugs).<span class="f">toBe</span>(<span class="s">'found before users do'</span>);
-});</code></pre>
-              <div class="test-result">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-                1 passed (1.2s) — 0 flaky, 0 skipped
-              </div>
+        <div class="hero-photo">
+          <div class="hero-photo-wrap">
+            <div class="hero-photo-ring">
+              <img src="assets/img/profile-full.jpg" alt="Portrait of Md. Masud Rana" width="320" height="320" loading="eager" decoding="async" />
+            </div>
+            <div class="visitor-badge" id="visitorBadge" role="status" aria-live="polite">
+              <b id="visitorCount">0</b>
+              <span data-visitor-label>visitors</span>
             </div>
           </div>
         </div>
-
-        <div class="stats" id="stats"></div>
       </div>
-    </section>
+    </header>
 
     <!-- ============ ABOUT ============ -->
-    <section id="about">
+    <section id="about" class="sec-alt">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">About Me</span>
-          <h2 class="section-title">Behind the <span class="grad-text">test cases</span></h2>
-          <p class="section-sub">Who I am, how I work, and what I bring to a QA team.</p>
+        <div class="sec-head reveal">
+          <h2 class="sec-title">About Me</h2>
         </div>
 
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <h3 id="aboutHeading"></h3>
+        <div class="about-grid grid-min0">
+          <div class="about-photo reveal">
+            <img src="assets/img/profile-full.jpg" alt="Md. Masud Rana" width="420" height="525" loading="lazy" />
+            <span class="about-badge" id="aboutBadge">3+ Years Experience</span>
+          </div>
+
+          <div class="about-copy reveal" data-delay="1">
+            <h3 id="aboutHeading">Professional Summary</h3>
             <div id="aboutParagraphs"></div>
             <div class="facts" id="aboutFacts"></div>
-          </div>
-
-          <div class="card reveal" data-delay="2">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            </div>
-            <h4 style="margin-bottom:14px">What I bring to the table</h4>
-            <ul class="highlight-list" id="aboutHighlights"></ul>
+            <a class="btn btn-muted" id="aboutResume" href="#" download>Download CV</a>
           </div>
         </div>
 
-        <div class="services-grid" id="services" style="margin-top:clamp(36px,5vw,60px)"></div>
+        <div class="services-grid grid-min0" id="services"></div>
       </div>
     </section>
 
     <!-- ============ EXPERIENCE ============ -->
     <section id="experience">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Career Path</span>
-          <h2 class="section-title">Professional <span class="grad-text">Experience</span></h2>
-          <p class="section-sub">Where I have tested, broken and improved real products.</p>
+        <div class="sec-head reveal">
+          <h2 class="sec-title">Work Experience</h2>
+          <p class="sec-sub">Where I have tested, broken and improved real products.</p>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="sec-alt">
+      <div class="container">
+        <div class="sec-head reveal">
+          <h2 class="sec-title">Projects</h2>
+          <p class="sec-sub">Professional QA work grouped by company, plus personal automation projects.</p>
         </div>
 
-        <div class="timeline" id="timeline"></div>
+        <div class="tablist-wrap reveal">
+          <div class="tablist" role="tablist" aria-label="Project categories">
+            <button class="project-tab" id="tab-professional" role="tab" type="button"
+                    aria-selected="true" aria-controls="panel-professional">Professional Projects</button>
+            <button class="project-tab" id="tab-personal" role="tab" type="button"
+                    aria-selected="false" aria-controls="panel-personal" tabindex="-1">Personal Projects</button>
+          </div>
+        </div>
+
+        <div id="panel-professional" role="tabpanel" aria-labelledby="tab-professional" tabindex="0">
+          <p class="panel-note">Product names are listed with the testing scope I owned on each engagement.</p>
+          <div id="proGroups"></div>
+        </div>
+
+        <div id="panel-personal" role="tabpanel" aria-labelledby="tab-personal" tabindex="0" hidden>
+          <div class="repo-grid grid-min0" id="repoGrid"></div>
+        </div>
       </div>
     </section>
 
     <!-- ============ SKILLS ============ -->
     <section id="skills">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Toolbox</span>
-          <h2 class="section-title">Technical <span class="grad-text">Skills</span></h2>
-          <p class="section-sub">The stack I use day to day across the QA lifecycle.</p>
+        <div class="sec-head reveal">
+          <h2 class="sec-title">Skills &amp; Expertise</h2>
+          <p class="sec-sub">The stack I use day to day across the QA lifecycle.</p>
         </div>
 
-        <div class="skill-grid reveal" id="skillGrid"></div>
-      </div>
-    </section>
+        <h3 class="skills-head reveal">Tools &amp; Technologies</h3>
+        <div class="tool-grid grid-min0 reveal" id="toolGrid"></div>
 
-    <!-- ============ PROJECTS ============ -->
-    <section id="projects">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Automation Work</span>
-          <h2 class="section-title">Featured <span class="grad-text">Projects</span></h2>
-          <p class="section-sub">Playwright + TypeScript suites built on the Page Object Model.</p>
-        </div>
-
-        <div class="filters reveal" id="filters"></div>
-        <div class="projects-list" id="projectsList"></div>
+        <h3 class="skills-head reveal">Testing Expertise</h3>
+        <div class="skill-grid grid-min0" id="skillGrid"></div>
       </div>
     </section>
 
     <!-- ============ EDUCATION ============ -->
-    <section id="education">
+    <section id="education" class="sec-alt">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Academics</span>
-          <h2 class="section-title">Education</h2>
-          <p class="section-sub">Where the foundation was built.</p>
+        <div class="sec-head reveal">
+          <h2 class="sec-title">Education</h2>
         </div>
-
-        <div class="edu-grid" id="eduGrid"></div>
+        <div class="edu-grid grid-min0" id="eduGrid"></div>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
     <section id="contact">
       <div class="container">
-        <div class="card contact-panel reveal">
-          <div class="contact-panel-grid">
+        <div class="sec-head reveal">
+          <h2 class="sec-title">Get In Touch</h2>
+        </div>
 
-            <div class="contact-intro">
-              <span class="eyebrow-line">Contact</span>
-              <h2>Let's build <span class="grad-text">reliable software</span> together.</h2>
-              <p>Have a role, a project or a question? My inbox is always open — I reply to every genuine message.</p>
-              <div class="contact-actions">
-                <a class="btn btn-primary" id="contactMail" href="#">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                  Send a message
-                </a>
-                <a class="btn btn-ghost" id="contactResume" href="#" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>
-                  View Resume
-                </a>
+        <div class="contact-grid grid-min0">
+          <div class="contact-info reveal">
+            <h3>Contact Information</h3>
+            <p>Have a role, a project or a question? I am always open to discussing QA work, automation projects and new opportunities.</p>
+            <div id="contactList"></div>
+            <div class="contact-social" id="contactSocial"></div>
+          </div>
+
+          <div class="card form-card reveal" data-delay="1">
+            <h3>Send Me a Message</h3>
+            <form id="contactForm" novalidate>
+              <div class="field">
+                <label for="cName">Name</label>
+                <input type="text" id="cName" name="name" placeholder="Your name" autocomplete="name" required minlength="2" />
               </div>
-            </div>
-
-            <div class="contact-cards">
-              <div class="contact-list" id="contactList"></div>
-              <div class="contact-social" id="contactSocial"></div>
-            </div>
-
+              <div class="field">
+                <label for="cEmail">Email</label>
+                <input type="email" id="cEmail" name="email" placeholder="you@company.com" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="cSubject">Subject</label>
+                <input type="text" id="cSubject" name="subject" placeholder="What is this about?" />
+              </div>
+              <div class="field">
+                <label for="cMessage">Message</label>
+                <textarea id="cMessage" name="message" placeholder="Your message..." required minlength="10"></textarea>
+              </div>
+              <button type="submit" class="btn btn-muted" id="contactSubmit" style="width:100%">Send Message</button>
+              <p id="formStatus" role="status" aria-live="polite"></p>
+            </form>
           </div>
         </div>
       </div>
@@ -395,12 +373,12 @@
     </div>
   </footer>
 
-  <a href="#home" class="to-top" id="toTop" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
-  </a>
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </button>
 
   <noscript>
-    <div style="padding:24px;text-align:center;background:#111;color:#fff">
+    <div style="padding:24px;text-align:center;background:#112d32;color:#fff">
       This portfolio renders its content with JavaScript. Please enable JavaScript to view the full site.
     </div>
   </noscript>

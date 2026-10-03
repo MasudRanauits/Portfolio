@@ -33,32 +33,35 @@ object, so you never need to touch HTML or CSS for a content change.
 |---|---|
 | Name, title, email, phone, location, social links | `profile` |
 | Rotating headline text in the hero | `profile.roles` |
-| The four counters (3+, 10+, 9+, 3) | `stats` |
+| The four hero counters | `stats` |
 | About paragraphs, highlights, quick facts | `about` |
 | Jobs, bullet points, client projects | `experience` |
+| "Tools & Technologies" tiles | `tools` |
 | Skill categories and chips | `skillGroups` |
-| Percentage bars | `proficiency` |
 | Automation projects + GitHub links | `projects` |
 | Degrees | `education` |
 | "What I do" service cards | `services` |
 
-**To add a new job**, copy an existing object inside `experience[]` and edit it.
-**To add a project**, copy an object inside `projects[]` — the category filter buttons
-build themselves automatically from the `category` values you use.
+**To add a new job**, copy an existing object inside `experience[]` and edit it. Its
+`projects[]` array also feeds the **Professional Projects** tab, grouped by company.
+**To add a personal project**, copy an object inside `projects[]` — it appears under the
+**Personal Projects** tab.
 
-To change the colour scheme, edit the `--accent`, `--accent-2`, `--accent-3` and `--grad`
-variables at the top of `assets/css/style.css` (both the `:root` block for dark mode and
-the `html[data-theme="light"]` block for light mode).
+To change the colour scheme, edit the token block at the top of `assets/css/style.css`:
+`--primary`, `--title`, `--heading`, `--body`, `--muted` and `--grad` in `:root` (light)
+and in the `html[data-theme="dark"]` block (dark).
 
 ## Features
 
-- Dark / light theme toggle (remembered via `localStorage`)
-- Typing animation in the hero, animated counters, animated proficiency bars
-- Scroll progress bar, scroll-spy navigation, reveal-on-scroll animations
-- Filterable project cards
+- Terminal-style boot screen on first load (skippable; never blocks the page)
+- Light / dark theme toggle, remembered via `localStorage` and applied before first paint
+- Typing animation in the hero, animated counters, reveal-on-scroll
+- Scroll progress bar, scroll-spy navigation, back-to-top button
+- Tabbed Projects section (Professional / Personal) with full keyboard support
 - Fully responsive down to 360px, with a mobile menu
-- Contact form that opens the visitor's own mail app with the message pre-filled
-  (no backend — nothing is stored anywhere)
+- Contact form with client-side validation. Set `FORMSPREE_ID` at the top of
+  `assets/js/main.js` to receive messages in your inbox; left empty, the form falls
+  back to opening the visitor's own mail app with the message pre-filled
 - Resume download button
 - SEO meta tags, Open Graph tags, inline SVG favicon
 - Respects `prefers-reduced-motion`; prints cleanly
