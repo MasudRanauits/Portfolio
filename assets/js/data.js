@@ -86,15 +86,21 @@ const PORTFOLIO = {
         "Supported 10+ product releases, ensuring timely QA sign-off, smooth UAT testing and on-time production deployments."
       ],
       projects: [
-        "Popular Medical College Hospital — Healthcare ERP",
-        "Kidney Foundation Hospital, Sylhet",
-        "Medinova Medical Services Ltd + Web Portal",
-        "Avante Aesthetics — Web Portal & CRM",
-        "Fouad Al-Khateeb Hospital + Web Portal",
-        "Akij Mediplex Limited + Web Portal",
-        "Akij Insaf Diagnostic & Consultation Center + Akij Insaf App"
+        { name: "Popular Medical College Hospital — Healthcare ERP",      tags: ["Web"] },
+        { name: "Kidney Foundation Hospital, Sylhet",                     tags: ["Web"] },
+        { name: "Medinova Medical Services Ltd + Web Portal",             tags: ["Web"] },
+        { name: "Avante Aesthetics — Web Portal & CRM",                   tags: ["Web"] },
+        { name: "Fouad Al-Khateeb Hospital + Web Portal",                 tags: ["Web"] },
+        { name: "Akij Mediplex Limited + Web Portal",                     tags: ["Web"] },
+        { name: "Akij Insaf Diagnostic & Consultation Center + Akij Insaf App", tags: ["Web", "Android", "iOS"] }
       ],
-      tags: ["Healthcare ERP", "Postman", "JMeter", "JIRA", "UAT"]
+      tags: [
+        "Healthcare ERP",
+        "Automation", "Manual Testing", "API Testing", "Load Testing", "Performance Testing",
+        "Database Testing", "Requirement Analysis", "Root Cause Analysis", "Test Case Design",
+        "Bug Reporting", "Cross Browser Testing", "Scenario Based Testing", "Module Based Testing",
+        "Smoke Testing", "Sanity Testing", "UI Testing", "User Acceptance Testing", "Regression Testing"
+      ]
     },
     {
       role: "Junior SQA Engineer",
@@ -113,7 +119,12 @@ const PORTFOLIO = {
         "Supported end-to-end testing, UAT and QA sign-off for smooth production deployments."
       ],
       projects: [],
-      tags: ["Web & Mobile", "Android / iOS", "Cross-browser", "JMeter", "JIRA"]
+      tags: [
+        "Requirement Analysis", "Root Cause Analysis", "Test Case Design", "Bug Reporting",
+        "Cross Browser Testing", "Load Testing", "API Testing", "Scenario Based Testing",
+        "Functional Testing", "Test Case Scripting", "Module Based Testing", "Smoke Testing",
+        "Sanity Testing", "UI Testing", "User Acceptance Testing", "Regression Testing"
+      ]
     }
   ],
 

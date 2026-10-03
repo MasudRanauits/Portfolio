@@ -163,20 +163,28 @@
 
   /* ---- Projects: professional groups (from experience) ---- */
   $("#proGroups").innerHTML = D.experience
-    .filter(j => j.projects && j.projects.length)
+    // A role earns a group once it has either named products or a testing scope.
+    .filter(j => (j.projects && j.projects.length) || (j.tags && j.tags.length))
     .map((j, i) => `
       <div class="proj-group reveal" data-delay="${i + 1}">
         <h3>${esc(j.company)} <em>— ${esc(j.role)}, ${esc(j.period)}</em></h3>
         <div class="tags" aria-label="Testing scope at ${esc(j.company)}">
           ${j.tags.map(t => `<span class="chip">${esc(t)}</span>`).join("")}
         </div>
+        ${!j.projects.length ? "" : `
         <div class="proj-cards grid-min0">
-          ${j.projects.map(p => `
+          ${j.projects.map(p => {
+            // A project is either a plain name, or { name, tags: [...] } for the platform chips.
+            const name = typeof p === "string" ? p : p.name;
+            const tags = (typeof p === "string" ? [] : p.tags) || [];
+            return `
             <div class="card card-hover proj-mini">
-              <p class="name">${esc(p)}</p>
+              <p class="name">${esc(name)}</p>
+              ${tags.length ? `<div class="proj-tags">${tags.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>` : ""}
               <p class="org">${esc(j.company)}</p>
-            </div>`).join("")}
-        </div>
+            </div>`;
+          }).join("")}
+        </div>`}
       </div>`)
     .join("");
 
