@@ -38,7 +38,7 @@
   --r-lg: 16px;
   --r-pill: 9999px;
 
-  --maxw: 1180px;
+  --maxw: 1280px;
   --nav-h: 72px;
 
   --ease: cubic-bezier(.22, 1, .36, 1);
@@ -117,7 +117,7 @@ textarea:focus-visible, [role="tab"]:focus-visible {
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 99px; border: 2px solid var(--bg); }
 
 /* ---------- 3. Layout helpers ---------- */
-.container { width: min(100% - 40px, var(--maxw)); margin-inline: auto; }
+.container { width: min(100% - 48px, var(--maxw)); margin-inline: auto; }
 
 section { padding-block: clamp(56px, 7vw, 80px); }
 .sec-alt { background: var(--bg-alt); }
