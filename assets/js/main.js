@@ -59,7 +59,14 @@
 
   /* ---- Profile bits ---- */
   $("#heroName").textContent     = P.name;
-  $("#footerName").textContent   = P.name;
+  /* Footer wordmark: last name picks up the accent colour, the rest stays white. */
+  (function renderFooterName() {
+    const parts = P.name.trim().split(/\s+/);
+    const last  = parts.length > 1 ? parts.pop() : "";
+    $("#footerName").innerHTML = esc(parts.join(" ")) +
+      (last ? ` <span class="acc">${esc(last)}</span>` : "");
+    $("#footerCopyName").textContent = P.name;
+  })();
   $("#heroTagline").textContent  = P.tagline;
   $("#availability").textContent = P.availability;
   $("#year").textContent         = D.meta.year;

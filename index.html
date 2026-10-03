@@ -222,10 +222,6 @@
             <div class="hero-photo-ring">
               <img src="assets/img/profile-full.jpg" alt="Portrait of Md. Masud Rana" width="320" height="320" loading="eager" decoding="async" />
             </div>
-            <div class="visitor-badge" id="visitorBadge" role="status" aria-live="polite">
-              <b id="visitorCount">0</b>
-              <span data-visitor-label>visitors</span>
-            </div>
           </div>
         </div>
       </div>
@@ -368,8 +364,17 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container footer-grid">
-      <p>&copy; <span id="year"></span> <span id="footerName">Md. Masud Rana</span>. All rights reserved.</p>
-      <div class="footer-social" id="footerSocial"></div>
+      <div class="footer-brand">
+        <a class="footer-logo" href="#home" id="footerName">Md. Masud Rana</a>
+        <div class="footer-social" id="footerSocial"></div>
+      </div>
+
+      <div class="visitor-badge" id="visitorBadge" role="status" aria-live="polite">
+        <b id="visitorCount">0</b>
+        <span data-visitor-label>visitors</span>
+      </div>
+
+      <p class="footer-copy">&copy; <span id="year"></span> <span id="footerCopyName">Md. Masud Rana</span>. All rights reserved.</p>
     </div>
   </footer>
 
