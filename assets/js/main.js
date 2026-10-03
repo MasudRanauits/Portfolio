@@ -116,8 +116,10 @@
 
   $("#stats").innerHTML = D.stats
     .map(s => `
-      <div class="stat">
-        <b><span class="count" data-target="${s.value}">0</span>${s.suffix}</b>
+      <div class="stat${s.text ? " stat-text" : ""}">
+        <b>${s.text
+          ? esc(s.text)
+          : `<span class="count" data-target="${s.value}">0</span>${s.suffix}`}</b>
         <span>${esc(s.label)}</span>
       </div>`)
     .join("");

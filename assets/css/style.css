@@ -271,6 +271,8 @@ html[data-theme="dark"] .chip { color: var(--primary); }
 .stat { background: rgba(255, 255, 255, .10); border-radius: var(--r-sm); padding: 14px 12px; }
 .stat b { display: block; font-size: 1.35rem; color: #fff; line-height: 1.2; }
 .stat span { font-size: .78rem; color: rgba(255, 255, 255, .75); }
+/* A phrase needs more room per line than a two-digit counter does. */
+.stat-text b { font-size: 1.02rem; }
 
 .hero-photo { display: flex; justify-content: center; }
 .hero-photo-wrap { position: relative; }

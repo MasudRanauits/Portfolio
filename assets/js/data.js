@@ -38,9 +38,10 @@ const PORTFOLIO = {
   /* ---------------- Hero counters ---------------- */
   stats: [
     { value: 3,  suffix: "+", label: "Years of Experience" },
-    { value: 10, suffix: "+", label: "Releases Supported" },
-    { value: 15, suffix: "+", label: "Projects Tested" },
-    { value: 3,  suffix: "",  label: "Automation Suites" }
+    { value: 15, suffix: "+", label: "Releases Supported" },
+    { value: 20, suffix: "+", label: "Projects Tested" },
+    // `text` instead of `value` makes a stat read as a phrase, not a counter.
+    { text: "Web · Mobile", label: "Platforms" }
   ],
 
   /* ---------------- About ---------------- */
@@ -49,7 +50,7 @@ const PORTFOLIO = {
     paragraphs: [
       "I am a Software QA Engineer with 3+ years of hands-on experience across manual and automation testing. My work mostly revolves around enterprise-scale products — Healthcare ERP systems, hospital web portals, CRM and E-commerce platforms — where a single missed defect directly affects real users.",
       "From requirement analysis to test planning, test case design, execution, defect reporting, retesting and release support, I work comfortably across the full QA lifecycle. For automation I use Playwright (TypeScript) and Selenium WebDriver with the Page Object Model, Postman for API validation, and Apache JMeter for load and performance testing.",
-      "Working inside Agile (Scrum) teams, I collaborate closely with developers, business analysts and stakeholders — and have signed off QA for 10+ production releases in a timely, documented and traceable way."
+      "Working inside Agile (Scrum) teams, I collaborate closely with developers, business analysts and stakeholders — and have signed off QA for 15+ production releases in a timely, documented and traceable way."
     ],
     highlights: [
       "Healthcare ERP domain expertise (Registration, OPD, EMR, Pharmacy, Diagnostic, MIS)",
@@ -83,7 +84,7 @@ const PORTFOLIO = {
         "Conducting load testing for the Healthcare ERP System using Apache JMeter.",
         "Conducted API testing using Postman for SMS gateway integration across modules such as Doctor Appointment, Patient Admission, OT Schedule and Discharge.",
         "Collaborating with developers, business analysts and stakeholders to ensure defect resolution within release timelines.",
-        "Supported 10+ product releases, ensuring timely QA sign-off, smooth UAT testing and on-time production deployments."
+        "Supported 15+ product releases, ensuring timely QA sign-off, smooth UAT testing and on-time production deployments."
       ],
       projects: [
         { name: "Popular Medical College Hospital — Healthcare ERP",      tags: ["Web"] },
