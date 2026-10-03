@@ -21,7 +21,7 @@ const PORTFOLIO = {
       "Performance Testing with JMeter"
     ],
     tagline:
-      "3+ years of building confidence into Healthcare ERP, Web Portal, CRM and E-commerce products — through sharp test design, dependable automation and clean release sign-offs.",
+      "I work on QA for Healthcare ERP, Web Portal, Android, CRM, and E-commerce products, combining manual testing with Playwright automation, along with API and performance testing using Postman and JMeter.",
     location: "Kuril Chowrasta, Vatara, Dhaka, Bangladesh",
     email: "masudr8343@gmail.com",
     phone: "+880 1689 178343",
