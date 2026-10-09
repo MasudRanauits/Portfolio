@@ -291,21 +291,29 @@ html[data-theme="dark"] .chip { color: var(--primary); }
   object-fit: cover; object-position: 60% center;
 }
 
-/* Sits in the footer's centre track. Stays invisible until the count
-   actually arrives, so a failed or blocked request shows nothing rather
-   than a stuck "0 visitors". */
+/* A pill tucked into the portrait's lower-right corner. Stays invisible until
+   the count actually arrives, so a failed or blocked request shows nothing
+   rather than a stuck "0 visitors". It only clears the circle by a few pixels,
+   which keeps it inside the hero column at every width. */
 .visitor-badge {
-  justify-self: center;
+  position: absolute;
+  right: -6px; bottom: 6%;
   display: flex; align-items: baseline; gap: 6px;
+  padding: 9px 16px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  border: 1px solid var(--primary-line);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
   opacity: 0; transform: translateY(6px);
   transition: opacity .45s ease, transform .45s var(--ease);
 }
 .visitor-badge.show { opacity: 1; transform: none; }
 .visitor-badge b {
-  font-size: 1rem; font-weight: 700; line-height: 1;
-  color: #fff; font-variant-numeric: tabular-nums;
+  font-size: 1.15rem; font-weight: 700; line-height: 1;
+  color: var(--heading); font-variant-numeric: tabular-nums;
 }
-.visitor-badge span { font-size: .82rem; color: rgba(255, 255, 255, .6); }
+.visitor-badge span { font-size: .82rem; color: var(--muted); }
 
 /* ---------- 8. About ---------- */
 .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(32px, 5vw, 56px); align-items: center; }
@@ -498,10 +506,8 @@ html[data-theme="dark"] #formStatus.err { color: #fca5a5; }
   border-top: 1px solid rgba(255, 255, 255, .10);
 }
 
-/* Three tracks so the visitor count sits dead centre of the page, not
-   centred between its two neighbours (which are never the same width). */
 .footer-grid {
-  display: grid; grid-template-columns: 1fr auto 1fr;
+  display: grid; grid-template-columns: 1fr auto;
   align-items: center; gap: 16px 24px;
 }
 
